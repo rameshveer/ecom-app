@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ovpix3ja7#2du3lo)7=+4+*dua8106n016g%gam5agl+0lr2#n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['ec2-13-235-249-163.ap-south-1.compute.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
@@ -123,3 +124,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'item_api.UserProfile'
+
+STATIC_ROOT = 'static/'
